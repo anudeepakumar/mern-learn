@@ -1,0 +1,25 @@
+{
+  "name": "devconnector",
+  "version": "1.0.0",
+  "description": "MERN learn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anudeepakumar/mern-learn.git"
+  },
+  "keywords": [
+    "Mongo",
+    "Express",
+    "React",
+    "Node"
+  ],
+  "author": "anudeepakumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anudeepakumar/mern-learn/issues"
+  },
+  "homepage": "https://github.com/anudeepakumar/mern-learn#readme"
+}
