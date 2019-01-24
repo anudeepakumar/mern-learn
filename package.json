@@ -4,7 +4,11 @@
   "description": "MERN learn",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -21,5 +25,14 @@
   "bugs": {
     "url": "https://github.com/anudeepakumar/mern-learn/issues"
   },
-  "homepage": "https://github.com/anudeepakumar/mern-learn#readme"
+  "homepage": "https://github.com/anudeepakumar/mern-learn#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.6"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
+  }
 }
