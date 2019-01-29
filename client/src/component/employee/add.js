@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import classnames from 'classnames';
+import { connect } from 'react-redux';
+import { addEmplyee } from '../../actions/employeeAction';
 
 class AddEmployee extends Component {
 	constructor() {
@@ -15,6 +18,7 @@ class AddEmployee extends Component {
 		};
 
 		this.onChange = this.onChange.bind(this);
+		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	onChange = (e) => {
@@ -24,10 +28,27 @@ class AddEmployee extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
+		const newEmployee = {
+			number: this.state.number,
+			name: this.state.name,
+			email: this.state.email,
+			password: this.state.password,
+			phone: this.state.phone,
+			account: this.state.account
+		}
+		this.props.addEmplyee(newEmployee);
+	}
+
+	componentWillReceiveProps = (nextProps) => {
+		if(nextProps.errors) {
+			console.log("here", nextProps.errors)
+			this.setState({errors: nextProps.errors});
+		}
 	}
 
 	render() {
 		const {errors} = this.state;
+		console.log(errors)
 		return (
 			<div className="container">
 				<form noValidate onSubmit={this.onSubmit}>
@@ -68,4 +89,13 @@ class AddEmployee extends Component {
 	}
 }
 
-export default AddEmployee;
+// AddEmployee.propTypes = {
+// 	employee: 
+// }
+
+const mapStateToProps = (state) => ({
+	employee: state.employee,
+	errors: state.errors
+});
+
+export default connect(mapStateToProps, { addEmplyee })(AddEmployee);
